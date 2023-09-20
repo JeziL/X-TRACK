@@ -335,6 +335,8 @@
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_gps_arrow_dark.c" />
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_gps_arrow_default.c" />
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_gps_arrow_light.c" />
+    <ClCompile Include="..\..\USER\App\Resource\Image\img_src_gps_arrow_malfoy.c" />
+    <ClCompile Include="..\..\USER\App\Resource\Image\img_src_gps_arrow_malfoy_head.c" />
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_gyroscope.c" />
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_locate.c" />
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_map_location.c" />

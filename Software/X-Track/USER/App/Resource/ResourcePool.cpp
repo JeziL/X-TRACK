@@ -35,6 +35,8 @@ do{\
         IMPORT_IMG(gps_arrow_default);
         IMPORT_IMG(gps_arrow_dark);
         IMPORT_IMG(gps_arrow_light);
+        IMPORT_IMG(gps_arrow_malfoy);
+        IMPORT_IMG(gps_arrow_malfoy_head);
         IMPORT_IMG(gyroscope);
         IMPORT_IMG(locate);
         IMPORT_IMG(map_location);
