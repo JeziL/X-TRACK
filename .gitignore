@@ -78,6 +78,7 @@
 .SystemSaveBackup.json
 SystemSave.json
 /MAP/*
+/Tools/java_map_download/*
 
 
 # To explicitly override the above, define any exceptions here; e.g.:
