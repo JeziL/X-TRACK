@@ -118,7 +118,7 @@ void SystemInfosView::Create(lv_obj_t* root)
         "System",
         "system_info",
 
-        "Firmware\n"
+        "Firmware\n\n"
         "Author\n"
         "LVGL\n"
         "SysTick\n"
