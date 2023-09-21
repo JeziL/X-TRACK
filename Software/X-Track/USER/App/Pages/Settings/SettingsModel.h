@@ -18,6 +18,9 @@ public:
     int GetWeight();
     void SetWeight(int weight);
 
+    void GetArrowTheme(char* buf);
+    void SetArrowTheme(char* theme);
+
     void SetStatusBarStyle(DataProc::StatusBar_Style_t style);
 
 private:

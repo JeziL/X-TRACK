@@ -2,7 +2,7 @@
 
 using namespace Page;
 
-#define ITEM_HEIGHT_MIN   36
+#define ITEM_HEIGHT_MIN   40
 #define ITEM_VER_PAD      40
 #define ITEM_HOR_PAD      20
 #define ITEM_COLUMN_PAD   16
@@ -31,22 +31,27 @@ void SettingsView::Create(lv_obj_t* root)
 
     /* Item Weight */
     Item_Create(&ui.weight, root, "Weight (kg)");
-    lv_obj_t* spinbox = lv_spinbox_create(ui.weight.cont);
-    lv_spinbox_set_range(spinbox, 40, 150);
-    lv_spinbox_set_digit_format(spinbox, 3, 0);
-    lv_spinbox_step_prev(spinbox);
-    lv_obj_set_width(spinbox, 80);
-    lv_obj_center(spinbox);
-    ui.weight.settingControl = spinbox;
+    ctrl = lv_spinbox_create(ui.weight.cont);
+    lv_spinbox_set_range(ctrl, 40, 150);
+    lv_spinbox_set_digit_format(ctrl, 3, 0);
+    lv_spinbox_step_prev(ctrl);
+    lv_obj_set_width(ctrl, 80);
+    lv_obj_align(ctrl, LV_ALIGN_LEFT_MID, 0, 0);
+    ui.weight.settingControl = ctrl;
 
     /* Item ArrowTheme */
     Item_Create(&ui.arrowTheme, root, "Arrow theme");
-    lv_obj_t *label = lv_label_create(ui.arrowTheme.cont);
-    lv_obj_enable_style_refresh(false);
-    lv_label_set_text(label, "TEST3");
-    lv_obj_add_style(label, &style.label, 0);
-    lv_obj_align(label, LV_ALIGN_LEFT_MID, 0, 0);
-    ui.arrowTheme.settingControl = label;
+    ctrl = lv_dropdown_create(ui.arrowTheme.cont);
+    lv_dropdown_set_options(ctrl,
+        "default\n"
+        "dark\n"
+        "light\n"
+        "malfoy\n"
+        "malfoy_head"
+    );
+    lv_obj_set_width(ctrl, 100);
+    lv_obj_align(ctrl, LV_ALIGN_LEFT_MID, 0, 0);
+    ui.arrowTheme.settingControl = ctrl;
 
     /* Item BackBtn */
     Item_Create(&ui.backBtn, root, "");
@@ -71,7 +76,6 @@ void SettingsView::Group_Init()
 {
     lv_group_t* group = lv_group_get_default();
     lv_group_set_wrap(group, true);
-    lv_group_set_focus_cb(group, onFocus);
 
     item_t* item_grp = ((item_t*)&ui);
 
@@ -88,21 +92,6 @@ void SettingsView::Delete()
 {
     lv_group_set_focus_cb(lv_group_get_default(), nullptr);
     Style_Reset();
-}
-
-void SettingsView::SetScrollToY(lv_obj_t* obj, lv_coord_t y, lv_anim_enable_t en)
-{
-    lv_coord_t scroll_y = lv_obj_get_scroll_y(obj);
-    lv_coord_t diff = -y + scroll_y;
-
-    lv_obj_scroll_by(obj, 0, diff, en);
-}
-
-void SettingsView::onFocus(lv_group_t* g)
-{
-    lv_obj_t* cont = lv_obj_get_parent(lv_group_get_focused(g));
-    lv_coord_t y = lv_obj_get_y(cont);
-    lv_obj_scroll_to_y(lv_obj_get_parent(cont), y, LV_ANIM_ON);
 }
 
 void SettingsView::Style_Init()
@@ -168,4 +157,37 @@ void SettingsView::SetSound(bool soundEnable) {
 
 void SettingsView::SetWeight(int weight) {
     lv_spinbox_set_value(ui.weight.settingControl, weight);
+}
+
+void SettingsView::SetArrowTheme(const char* theme) {
+    const char* options = lv_dropdown_get_options(ui.arrowTheme.settingControl);
+    // find corresponding option index
+    // by ChatGPT
+    const char* ptr = options;
+    const char* sub_ptr = theme;
+    uint16_t index = 0;
+    while (*ptr) {
+        if (*ptr == *sub_ptr) {
+            // matched, continue compare
+            ptr++;
+            sub_ptr++;
+
+            if (*sub_ptr == '\0') {
+                // theme totally matched
+                break;
+            }
+        }
+        else if (*ptr == '\n') {
+            // new line, theme ptr reset
+            index++;
+            sub_ptr = theme;
+            ptr++;
+        }
+        else {
+            // not matched, try next character
+            ptr++;
+        }
+    }
+    if (index >= lv_dropdown_get_option_cnt(ui.arrowTheme.settingControl)) index = 0;
+    lv_dropdown_set_selected(ui.arrowTheme.settingControl, index);
 }

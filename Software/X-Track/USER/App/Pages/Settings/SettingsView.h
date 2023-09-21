@@ -38,8 +38,6 @@ public:
     void SetArrowTheme(
         const char* theme
     );
-    void SetScrollToY(lv_obj_t* obj, lv_coord_t y, lv_anim_enable_t en);
-    static void onFocus(lv_group_t* e);
 
 private:
     struct

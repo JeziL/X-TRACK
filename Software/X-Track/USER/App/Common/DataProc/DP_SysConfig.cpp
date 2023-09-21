@@ -41,6 +41,9 @@ static int onEvent(Account* account, Account::EventParam_t* param)
             sysConfig.soundEnable = info->soundEnable;
             HAL::Buzz_SetEnable(sysConfig.soundEnable);
         }
+        else if (info->cmd == SYSCONFIG_CMD_MOD_ARROWTHEME) {
+            strcpy(sysConfig.arrowTheme, info->arrowTheme);
+        }
     }
     break;
     case Account::EVENT_SUB_PULL:

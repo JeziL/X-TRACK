@@ -55,6 +55,24 @@ void SettingsModel::SetWeight(int weight) {
     account->Notify("SportStatus", &info, sizeof(info));
 }
 
+void SettingsModel::GetArrowTheme(char *buf) {
+    DataProc::SysConfig_Info_t sysConfig;
+    if (account->Pull("SysConfig", &sysConfig, sizeof(sysConfig)) != Account::RES_OK) {
+        strcpy(buf, CONFIG_ARROW_THEME_DEFAULT);
+        return;
+    }
+    strcpy(buf, sysConfig.arrowTheme);
+    return;
+}
+
+void SettingsModel::SetArrowTheme(char* theme) {
+    DataProc::SysConfig_Info_t sysConfig;
+    DATA_PROC_INIT_STRUCT(sysConfig);
+    sysConfig.cmd = DataProc::SYSCONFIG_CMD_MOD_ARROWTHEME;
+    strcpy(sysConfig.arrowTheme, theme);
+    account->Notify("SysConfig", &sysConfig, sizeof(sysConfig));
+}
+
 void SettingsModel::SetStatusBarStyle(DataProc::StatusBar_Style_t style)
 {
     DataProc::StatusBar_Info_t info;

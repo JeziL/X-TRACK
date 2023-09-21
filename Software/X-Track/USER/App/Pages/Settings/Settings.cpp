@@ -50,10 +50,12 @@ void Settings::onViewDidAppear()
 {
     lv_group_t* group = lv_group_get_default();
     LV_ASSERT_NULL(group);
-    View.onFocus(group);
 
     View.SetSound(Model.GetSoundEnable());
     View.SetWeight(Model.GetWeight());
+    char arrowTheme[16];
+    Model.GetArrowTheme(arrowTheme);
+    View.SetArrowTheme(arrowTheme);
 }
 
 void Settings::onViewWillDisappear()
@@ -110,6 +112,13 @@ void Settings::onEvent(lv_event_t* event)
     // Weight spinbox changed
     if (obj == instance->View.ui.weight.settingControl && code == LV_EVENT_VALUE_CHANGED) {
         instance->Model.SetWeight(lv_spinbox_get_value(obj));
+    }
+
+    // Arrow theme changed
+    if (obj == instance->View.ui.arrowTheme.settingControl && code == LV_EVENT_VALUE_CHANGED) {
+        char theme[16];
+        lv_dropdown_get_selected_str(obj, theme, 16);
+        instance->Model.SetArrowTheme(theme);
     }
 
     if (code == LV_EVENT_PRESSED)
