@@ -15,6 +15,9 @@ public:
     bool GetSoundEnable();
     void SetSoundEnable(bool soundEnable);
 
+    int GetWeight();
+    void SetWeight(int weight);
+
     void SetStatusBarStyle(DataProc::StatusBar_Style_t style);
 
 private:

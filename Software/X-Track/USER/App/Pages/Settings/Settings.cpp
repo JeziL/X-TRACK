@@ -53,6 +53,7 @@ void Settings::onViewDidAppear()
     View.onFocus(group);
 
     View.SetSound(Model.GetSoundEnable());
+    View.SetWeight(Model.GetWeight());
 }
 
 void Settings::onViewWillDisappear()
@@ -101,8 +102,14 @@ void Settings::onEvent(lv_event_t* event)
     lv_obj_t* obj = lv_event_get_current_target(event);
     lv_event_code_t code = lv_event_get_code(event);
 
+    // Sound switch changed
     if (obj == instance->View.ui.sound.settingControl && code == LV_EVENT_VALUE_CHANGED) {
         instance->Model.SetSoundEnable(lv_obj_has_state(obj, LV_STATE_CHECKED));
+    }
+
+    // Weight spinbox changed
+    if (obj == instance->View.ui.weight.settingControl && code == LV_EVENT_VALUE_CHANGED) {
+        instance->Model.SetWeight(lv_spinbox_get_value(obj));
     }
 
     if (code == LV_EVENT_PRESSED)

@@ -21,6 +21,16 @@ typedef struct
     uint16_t time;
 } Recorder_Info_t;
 
+/* SportStatus */
+typedef enum {
+    SportStatus_CMD_MOD_WEIGHT
+} SportStatus_Cmd_t;
+
+typedef struct {
+    SportStatus_Cmd_t cmd;
+    int weight;
+} SportStatus_Info_t;
+
 /* Storage */
 typedef enum
 {

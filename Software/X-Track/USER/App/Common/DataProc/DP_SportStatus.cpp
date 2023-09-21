@@ -91,6 +91,13 @@ static int onEvent(Account* account, Account::EventParam_t* param)
         return Account::RES_OK;
     }
 
+    if (param->event == Account::EVENT_NOTIFY) {
+        DataProc::SportStatus_Info_t* info = (DataProc::SportStatus_Info_t*)param->data_p;
+        if (info->cmd == SportStatus_CMD_MOD_WEIGHT) {
+            sportStatus.weight = info->weight;
+        }
+    }
+
     if (param->event != Account::EVENT_SUB_PULL)
     {
         return Account::RES_UNSUPPORTED_REQUEST;

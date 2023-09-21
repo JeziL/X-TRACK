@@ -5,7 +5,7 @@ using namespace Page;
 #define ITEM_HEIGHT_MIN   36
 #define ITEM_VER_PAD      40
 #define ITEM_HOR_PAD      20
-#define ITEM_COLUMN_PAD   20
+#define ITEM_COLUMN_PAD   16
 
 void SettingsView::Create(lv_obj_t* root)
 {
@@ -31,16 +31,17 @@ void SettingsView::Create(lv_obj_t* root)
 
     /* Item Weight */
     Item_Create(&ui.weight, root, "Weight (kg)");
-    lv_obj_t* label = lv_label_create(ui.weight.cont);
-    lv_obj_enable_style_refresh(false);
-    lv_label_set_text(label, "TEST2");
-    lv_obj_add_style(label, &style.label, 0);
-    lv_obj_align(label, LV_ALIGN_LEFT_MID, 0, 0);
-    ui.weight.settingControl = label;
+    lv_obj_t* spinbox = lv_spinbox_create(ui.weight.cont);
+    lv_spinbox_set_range(spinbox, 40, 150);
+    lv_spinbox_set_digit_format(spinbox, 3, 0);
+    lv_spinbox_step_prev(spinbox);
+    lv_obj_set_width(spinbox, 80);
+    lv_obj_center(spinbox);
+    ui.weight.settingControl = spinbox;
 
     /* Item ArrowTheme */
     Item_Create(&ui.arrowTheme, root, "Arrow theme");
-    label = lv_label_create(ui.arrowTheme.cont);
+    lv_obj_t *label = lv_label_create(ui.arrowTheme.cont);
     lv_obj_enable_style_refresh(false);
     lv_label_set_text(label, "TEST3");
     lv_obj_add_style(label, &style.label, 0);
@@ -163,4 +164,8 @@ void SettingsView::SetSound(bool soundEnable) {
     else {
         lv_obj_clear_state(ui.sound.settingControl, LV_STATE_CHECKED);
     } 
+}
+
+void SettingsView::SetWeight(int weight) {
+    lv_spinbox_set_value(ui.weight.settingControl, weight);
 }
