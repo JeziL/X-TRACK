@@ -37,6 +37,10 @@ static int onEvent(Account* account, Account::EventParam_t* param)
                 sysConfig.latitude = (float)gpsInfo.latitude;
             }
         }
+        else if (info->cmd == SYSCONFIG_CMD_MOD_SOUND) {
+            sysConfig.soundEnable = info->soundEnable;
+            HAL::Buzz_SetEnable(sysConfig.soundEnable);
+        }
     }
     break;
     case Account::EVENT_SUB_PULL:

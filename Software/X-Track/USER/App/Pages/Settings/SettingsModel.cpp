@@ -8,6 +8,7 @@ void SettingsModel::Init()
     account = new Account("SettingsModel", DataProc::Center(), 0, this);
 
     account->Subscribe("SysConfig");
+    account->Subscribe("Storage");
     account->Subscribe("StatusBar");
 }
 
@@ -29,7 +30,11 @@ bool SettingsModel::GetSoundEnable() {
 }
 
 void SettingsModel::SetSoundEnable(bool soundEnable) {
-    printf("setsound: %s\n", soundEnable ? "on" : "off");
+    DataProc::SysConfig_Info_t sysConfig;
+    DATA_PROC_INIT_STRUCT(sysConfig);
+    sysConfig.cmd = DataProc::SYSCONFIG_CMD_MOD_SOUND;
+    sysConfig.soundEnable = soundEnable;
+    account->Notify("SysConfig", &sysConfig, sizeof(sysConfig));
 }
 
 void SettingsModel::SetStatusBarStyle(DataProc::StatusBar_Style_t style)

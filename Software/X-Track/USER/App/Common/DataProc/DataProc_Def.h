@@ -108,6 +108,7 @@ typedef enum
 {
     SYSCONFIG_CMD_LOAD,
     SYSCONFIG_CMD_SAVE,
+    SYSCONFIG_CMD_MOD_SOUND,
 } SysConfig_Cmd_t;
 
 typedef struct
