@@ -418,6 +418,9 @@
     <Filter Include="lvgl\examples\anim">
       <UniqueIdentifier>{effdcfb6-96d7-4c48-b546-18ac6c30c910}</UniqueIdentifier>
     </Filter>
+    <Filter Include="App\Pages\Settings">
+      <UniqueIdentifier>{87f8ef9a-b314-4573-b946-68314d43f2e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lvgl\examples\get_started\lv_example_get_started.h">
@@ -1037,6 +1040,15 @@
     </ClInclude>
     <ClInclude Include="lvgl\examples\anim\lv_example_anim.h">
       <Filter>lvgl\examples\anim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\USER\App\Pages\Settings\SettingsView.h">
+      <Filter>App\Pages\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\USER\App\Pages\Settings\Settings.h">
+      <Filter>App\Pages\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\USER\App\Pages\Settings\SettingsModel.h">
+      <Filter>App\Pages\Settings</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -2107,6 +2119,27 @@
     </ClCompile>
     <ClCompile Include="lvgl\examples\anim\lv_example_anim_timeline_1.c">
       <Filter>lvgl\examples\anim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\USER\App\Pages\Settings\Settings.cpp">
+      <Filter>App\Pages\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\USER\App\Pages\Settings\SettingsModel.cpp">
+      <Filter>App\Pages\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\USER\App\Pages\Settings\SettingsView.cpp">
+      <Filter>App\Pages\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\USER\App\Resource\Image\img_src_gps_arrow_malfoy.c">
+      <Filter>App\Resource\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\USER\App\Resource\Image\img_src_gps_arrow_malfoy_head.c">
+      <Filter>App\Resource\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\USER\App\Resource\Image\img_src_settings.c">
+      <Filter>App\Resource\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\USER\App\Resource\Image\img_src_back.c">
+      <Filter>App\Resource\Image</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

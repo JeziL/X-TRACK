@@ -51,6 +51,8 @@ do{\
         IMPORT_IMG(system_info);
         IMPORT_IMG(time_info);
         IMPORT_IMG(trip);
+        IMPORT_IMG(settings);
+        IMPORT_IMG(back);
     }
 
 } /* extern "C" */

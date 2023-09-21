@@ -100,6 +100,9 @@
     <ClInclude Include="..\..\USER\App\Pages\LiveMap\LiveMapModel.h" />
     <ClInclude Include="..\..\USER\App\Pages\LiveMap\LiveMapView.h" />
     <ClInclude Include="..\..\USER\App\Pages\Page.h" />
+    <ClInclude Include="..\..\USER\App\Pages\Settings\Settings.h" />
+    <ClInclude Include="..\..\USER\App\Pages\Settings\SettingsModel.h" />
+    <ClInclude Include="..\..\USER\App\Pages\Settings\SettingsView.h" />
     <ClInclude Include="..\..\USER\App\Pages\Startup\Startup.h" />
     <ClInclude Include="..\..\USER\App\Pages\Startup\StartupModel.h" />
     <ClInclude Include="..\..\USER\App\Pages\Startup\StartupView.h" />
@@ -312,6 +315,9 @@
     <ClCompile Include="..\..\USER\App\Pages\LiveMap\LiveMap.cpp" />
     <ClCompile Include="..\..\USER\App\Pages\LiveMap\LiveMapModel.cpp" />
     <ClCompile Include="..\..\USER\App\Pages\LiveMap\LiveMapView.cpp" />
+    <ClCompile Include="..\..\USER\App\Pages\Settings\Settings.cpp" />
+    <ClCompile Include="..\..\USER\App\Pages\Settings\SettingsModel.cpp" />
+    <ClCompile Include="..\..\USER\App\Pages\Settings\SettingsView.cpp" />
     <ClCompile Include="..\..\USER\App\Pages\Startup\Startup.cpp" />
     <ClCompile Include="..\..\USER\App\Pages\Startup\StartupModel.cpp" />
     <ClCompile Include="..\..\USER\App\Pages\Startup\StartupView.cpp" />
@@ -328,6 +334,7 @@
     <ClCompile Include="..\..\USER\App\Resource\Font\font_bahnschrift_32.c" />
     <ClCompile Include="..\..\USER\App\Resource\Font\font_bahnschrift_65.c" />
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_alarm.c" />
+    <ClCompile Include="..\..\USER\App\Resource\Image\img_src_back.c" />
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_battery.c" />
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_battery_info.c" />
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_bicycle.c" />
@@ -345,6 +352,7 @@
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_pause.c" />
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_satellite.c" />
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_sd_card.c" />
+    <ClCompile Include="..\..\USER\App\Resource\Image\img_src_settings.c" />
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_start.c" />
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_stop.c" />
     <ClCompile Include="..\..\USER\App\Resource\Image\img_src_storage.c" />

@@ -25,6 +25,7 @@ void Dialplate::onViewLoad()
     AttachEvent(View.ui.btnCont.btnMap);
     AttachEvent(View.ui.btnCont.btnRec);
     AttachEvent(View.ui.btnCont.btnMenu);
+    AttachEvent(View.ui.btnCont.btnSettings);
 }
 
 void Dialplate::onViewDidLoad()
@@ -43,6 +44,7 @@ void Dialplate::onViewWillAppear()
     lv_group_add_obj(group, View.ui.btnCont.btnMap);
     lv_group_add_obj(group, View.ui.btnCont.btnRec);
     lv_group_add_obj(group, View.ui.btnCont.btnMenu);
+    lv_group_add_obj(group, View.ui.btnCont.btnSettings);
 
     if (lastFocus)
     {
@@ -133,6 +135,10 @@ void Dialplate::onBtnClicked(lv_obj_t* btn)
     else if (btn == View.ui.btnCont.btnMenu)
     {
         _Manager->Push("Pages/SystemInfos");
+    }
+    else if (btn == View.ui.btnCont.btnSettings)
+    {
+        _Manager->Push("Pages/Settings");
     }
 }
 

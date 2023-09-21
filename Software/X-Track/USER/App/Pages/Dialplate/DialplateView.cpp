@@ -34,6 +34,7 @@ void DialplateView::Create(lv_obj_t* root)
         ANIM_DEF(500, ui.btnCont.btnMap, height, 0, h_tar_btn),
         ANIM_DEF(600, ui.btnCont.btnRec, height, 0, h_tar_btn),
         ANIM_DEF(700, ui.btnCont.btnMenu, height, 0, h_tar_btn),
+        ANIM_DEF(800, ui.btnCont.btnSettings, height, 0, h_tar_btn),
         LV_ANIM_TIMELINE_WRAPPER_END
     };
     lv_anim_timeline_add_wrapper(ui.anim_timeline, wrapper);
@@ -158,9 +159,10 @@ void DialplateView::BtnCont_Create(lv_obj_t* par)
 
     ui.btnCont.cont = cont;
 
-    ui.btnCont.btnMap = Btn_Create(cont, ResourcePool::GetImage("locate"), -80);
-    ui.btnCont.btnRec = Btn_Create(cont, ResourcePool::GetImage("start"), 0);
-    ui.btnCont.btnMenu = Btn_Create(cont, ResourcePool::GetImage("menu"), 80);
+    ui.btnCont.btnMap = Btn_Create(cont, ResourcePool::GetImage("locate"), -75);
+    ui.btnCont.btnRec = Btn_Create(cont, ResourcePool::GetImage("start"), -25);
+    ui.btnCont.btnMenu = Btn_Create(cont, ResourcePool::GetImage("menu"), 25);
+    ui.btnCont.btnSettings = Btn_Create(cont, ResourcePool::GetImage("settings"), 75);
 }
 
 lv_obj_t* DialplateView::Btn_Create(lv_obj_t* par, const void* img_src, lv_coord_t x_ofs)

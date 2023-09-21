@@ -99,6 +99,7 @@ PageBase::State_t PageManager::StateLoadExecute(PageBase* base)
     
     lv_obj_clear_flag(root_obj, LV_OBJ_FLAG_SCROLLABLE);
     lv_obj_set_user_data(root_obj, base);
+    lv_obj_remove_style_all(root_obj);
 
     if (_RootDefaultStyle)
     {

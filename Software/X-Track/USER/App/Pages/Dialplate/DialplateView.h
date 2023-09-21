@@ -39,6 +39,7 @@ public:
             lv_obj_t* btnMap;
             lv_obj_t* btnRec;
             lv_obj_t* btnMenu;
+            lv_obj_t* btnSettings;
         } btnCont;
 
         lv_anim_timeline_t* anim_timeline;
