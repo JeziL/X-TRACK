@@ -2,8 +2,8 @@
 
 using namespace Page;
 
-#define ITEM_HEIGHT_MIN   40
-#define ITEM_VER_PAD      40
+#define ITEM_HEIGHT_MIN   48
+#define ITEM_VER_PAD      32
 #define ITEM_HOR_PAD      20
 #define ITEM_COLUMN_PAD   16
 
