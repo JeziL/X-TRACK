@@ -33,7 +33,11 @@ void Settings::onViewLoad()
 
 void Settings::onViewDidLoad()
 {
-
+    View.SetSound(Model.GetSoundEnable());
+    View.SetWeight(Model.GetWeight());
+    char arrowTheme[16];
+    Model.GetArrowTheme(arrowTheme);
+    View.SetArrowTheme(arrowTheme);
 }
 
 void Settings::onViewWillAppear()
@@ -50,12 +54,6 @@ void Settings::onViewDidAppear()
 {
     lv_group_t* group = lv_group_get_default();
     LV_ASSERT_NULL(group);
-
-    View.SetSound(Model.GetSoundEnable());
-    View.SetWeight(Model.GetWeight());
-    char arrowTheme[16];
-    Model.GetArrowTheme(arrowTheme);
-    View.SetArrowTheme(arrowTheme);
 }
 
 void Settings::onViewWillDisappear()
