@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file lv_conf.h
  * Configuration file for v8.1.1-dev
  */
@@ -570,7 +570,7 @@ uint32_t custom_tick_get(void);
 
 #define LV_USE_LIST       1
 
-#define LV_USE_MENU       1
+#define LV_USE_MENU       0
 
 #define LV_USE_METER      1
 
