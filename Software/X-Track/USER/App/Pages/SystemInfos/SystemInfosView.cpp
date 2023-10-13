@@ -137,8 +137,7 @@ void SystemInfosView::Group_Init()
 
     item_t* item_grp = ((item_t*)&ui);
 
-    /* Reverse adding to group makes encoder operation more comfortable */
-    for (int i = sizeof(ui) / sizeof(item_t) - 1; i >= 0; i--)
+    for (int i = 0; i < sizeof(ui) / sizeof(item_t); i++)
     {
         lv_group_add_obj(group, item_grp[i].icon);
     }
