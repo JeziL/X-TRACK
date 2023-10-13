@@ -163,7 +163,7 @@ static void StatusBar_Update(lv_timer_t* timer)
     HAL::Power_Info_t power;
     if(actStatusBar->Pull("Power", &power, sizeof(power)) == Account::RES_OK)
     {
-        lv_label_set_text_fmt(ui.battery.label, "%d", power.usage);
+        lv_label_set_text_fmt(ui.battery.label, "%d%%", power.usage);
     }
 
     bool Is_BattCharging = power.isCharging;
@@ -308,7 +308,7 @@ lv_obj_t* Page::StatusBar_Create(lv_obj_t* par)
     /* battery */
     img = lv_img_create(cont);
     lv_img_set_src(img, ResourcePool::GetImage("battery"));
-    lv_obj_align(img, LV_ALIGN_RIGHT_MID, -35, 0);
+    lv_obj_align(img, LV_ALIGN_RIGHT_MID, -40, 0);
     lv_img_t* img_ext = (lv_img_t*)img;
     lv_obj_set_size(img, img_ext->w, img_ext->h);
     ui.battery.img = img;
