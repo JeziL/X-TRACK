@@ -78,8 +78,7 @@
 .SystemSaveBackup.json
 SystemSave.json
 /MAP/*
-/Tools/java_map_download/*
-/Tools/GNSSToolKit_Lite/GNSSToolKitLite_configs.ini
+/Tools/*
 
 
 # To explicitly override the above, define any exceptions here; e.g.:
